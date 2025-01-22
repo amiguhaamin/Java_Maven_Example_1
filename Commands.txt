@@ -1,0 +1,36 @@
+sudo su
+dnf update
+
+# Install Java
+sudo dnf install java-17-amazon-corretto -y
+
+# Install Jenkins
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
+
+
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+
+sudo yum upgrade
+# Add required dependencies for the jenkins package
+sudo yum install fontconfig java-17-openjdk
+
+# Either
+sudo yum install jenkins
+# Or
+dnf install jenkins -y
+
+
+# Start Jenkins
+# You can enable the Jenkins service to start at boot with the command:
+sudo systemctl enable jenkins
+
+# You can start the Jenkins service with the command:
+sudo systemctl start jenkins
+
+# You can check the status of the Jenkins service using the command:
+sudo systemctl status jenkins
+
+# Install docker
+dnf install docker
+
